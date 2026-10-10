@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback Survey</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 25px 15px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+            color: #263238;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            color: #5b35a5;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label, legend {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            margin-top: 9px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 0;
+        }
+
+        fieldset label {
+            display: block;
+            margin: 12px 0;
+            font-weight: normal;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+            accent-color: #6c43b8;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .rating {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 12px;
+        }
+
+        .rating label {
+            font-weight: normal;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #6c43b8;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4e2d91;
+        }
+
+        #message {
+            text-align: center;
+            color: #247a45;
+            font-weight: bold;
+            margin-top: 18px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #777;
+            font-size: 13px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 16px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Student Feedback Survey</h1>
+        <p>
+            Your feedback helps us improve the learning experience.
+            Please complete this short survey.
+        </p>
+    </header>
+
+    <form id="surveyForm">
+
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name"
+                   placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+                   placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <fieldset>
+                <legend>1. How did you learn about this survey?</legend>
+                <label><input type="radio" name="source"
+                       value="College" required> College</label>
+                <label><input type="radio" name="source"
+                       value="Friends"> Friends</label>
+                <label><input type="radio" name="source"
+                       value="Social Media"> Social Media</label>
+            </fieldset>
+        </div>
+
+        <div class="form-group">
+            <fieldset>
+                <legend>2. Which topics interest you?</legend>
+                <label><input type="checkbox" name="topics"
+                       value="HTML"> HTML</label>
+                <label><input type="checkbox" name="topics"
+                       value="CSS"> CSS</label>
+                <label><input type="checkbox" name="topics"
+                       value="JavaScript"> JavaScript</label>
+                <label><input type="checkbox" name="topics"
+                       value="Python"> Python</label>
+            </fieldset>
+        </div>
+
+        <div class="form-group">
+            <label for="course">3. Select your course</label>
+            <select id="course" name="course" required>
+                <option value="">-- Select a course --</option>
+                <option value="BCA">BCA</option>
+                <option value="MCA">MCA</option>
+                <option value="BSc">B.Sc.</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <fieldset>
+                <legend>4. Rate your learning experience (1–5)</legend>
+                <div class="rating">
+                    <label><input type="radio" name="rating"
+                           value="1" required> 1</label>
+                    <label><input type="radio" name="rating"
+                           value="2"> 2</label>
+                    <label><input type="radio" name="rating"
+                           value="3"> 3</label>
+                    <label><input type="radio" name="rating"
+                           value="4"> 4</label>
+                    <label><input type="radio" name="rating"
+                           value="5"> 5</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="form-group">
+            <label for="improvement">
+                5. What can we improve?
+            </label>
+            <textarea id="improvement" name="improvement"
+                      rows="4"
+                      placeholder="Share your suggestions..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="recommend">6. Would you recommend this course?</label>
+            <select id="recommend" name="recommend" required>
+                <option value="">-- Select an option --</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Maybe">Maybe</option>
+            </select>
+        </div>
+
+        <button type="submit">Submit Feedback</button>
+
+        <p id="message" role="status" aria-live="polite"></p>
+
+    </form>
+
+    <footer>
+        <p>© 2026 Student Feedback Survey | Created with HTML5 & CSS</p>
+    </footer>
+
+</div>
+
+<script>
+    document.getElementById("surveyForm").addEventListener(
+        "submit", function(event) {
+            event.preventDefault();
+
+            document.getElementById("message").textContent =
+                "Thank you! Your feedback has been recorded for this demo.";
+
+            this.reset();
+        }
+    );
+</script>
+
+</body>
+</html>
